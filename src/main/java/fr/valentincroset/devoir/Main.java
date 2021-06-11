@@ -6,6 +6,9 @@ import fr.valentincroset.devoir.service.DirecteurService;
 import fr.valentincroset.devoir.service.SalarieService;
 import org.hibernate.Session;
 
+import java.util.Comparator;
+import java.util.stream.Collectors;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -36,6 +39,11 @@ public class Main {
         directeurService.create(directeur1, session);
         salarieService.create(salarie1, session);
         salarieService.create(salarie2, session);
+
+        Salarie maxSalaire = salarieService.findAll(session).stream().
+                max(Comparator.comparingDouble(Salarie::getSalaire)).get();
+
+        System.out.println("Le plus gros salaire est : " + maxSalaire.getSalaire());
 
     }
 

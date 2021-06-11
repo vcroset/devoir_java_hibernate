@@ -1,9 +1,43 @@
 package fr.valentincroset.devoir;
 
+import fr.valentincroset.devoir.model.Directeur;
+import fr.valentincroset.devoir.model.Salarie;
+import fr.valentincroset.devoir.service.DirecteurService;
+import fr.valentincroset.devoir.service.SalarieService;
+import org.hibernate.Session;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        System.out.println("app ok");
+        System.out.println("lancement...");
+
+        SalarieService salarieService = new SalarieService();
+        DirecteurService directeurService = new DirecteurService();
+
+        Directeur directeur1 = new Directeur();
+        directeur1.setNom("Croset");
+        directeur1.setPrenom("Valentin");
+
+        Salarie salarie1 = new Salarie();
+        salarie1.setIdDirecteur(directeur1);
+        salarie1.setNom("test");
+        salarie1.setPrenom("test");
+        salarie1.setSalaire(39000);
+
+        Salarie salarie2 = new Salarie();
+        salarie2.setIdDirecteur(directeur1);
+        salarie2.setNom("test2");
+        salarie2.setPrenom("test2");
+        salarie2.setSalaire(29000);
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        directeurService.create(directeur1, session);
+        salarieService.create(salarie1, session);
+        salarieService.create(salarie2, session);
+
     }
+
+
 }

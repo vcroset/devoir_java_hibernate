@@ -1,4 +1,4 @@
-package com.company;
+package fr.valentincroset.devoir;
 
 public class Main {
 

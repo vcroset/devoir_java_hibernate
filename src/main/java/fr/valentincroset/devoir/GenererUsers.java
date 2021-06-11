@@ -1,4 +1,4 @@
-package com.company;
+package fr.valentincroset.devoir;
 
 import java.io.File;
 import java.util.EnumSet;

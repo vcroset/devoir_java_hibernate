@@ -8,6 +8,6 @@
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
-        <mapping class="com.company.users"/>
+        <mapping class="fr.valentincroset.devoir.model.Hotel"/>
     </session-factory>
 </hibernate-configuration>

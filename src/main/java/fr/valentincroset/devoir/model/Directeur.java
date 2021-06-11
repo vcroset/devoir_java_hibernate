@@ -3,8 +3,8 @@ package fr.valentincroset.devoir.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Hotel")
-public class Hotel {
+@Table(name = "Directeur")
+public class Directeur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,14 +12,8 @@ public class Hotel {
     private int id;
     @Column(name = "nom", nullable = true, unique = false)
     private String nom;
-    @Column(name = "adresse", nullable = true, unique = false)
-    private String adresse;
-    @Column(name = "telephone", nullable = true, unique = false)
-    private String telephone;
-
-    public Hotel() {
-
-    }
+    @Column(name = "prenom", nullable = true, unique = false)
+    private String prenom;
 
     public int getId() {
         return id;
@@ -37,19 +31,11 @@ public class Hotel {
         this.nom = nom;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 }
